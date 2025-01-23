@@ -13,10 +13,10 @@ if result.stderr:
     print("Errori:", result.stderr)
           
 r = requests.get('https://updater.factorio.com/get-available-versions')
-with open("semaphore_python.log", "w") as file:
+with open("/luca/home/factorio-updater/semaphore_python.log", "w") as file:
         file.write(now + " " + str(r))
 
-result = subprocess.run(['cat', 'semaphore_python.log'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+result = subprocess.run(['cat', '/luca/home/factorio-updater/semaphore_python.log'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 print(result.stdout)
 if result.stderr:
     print("Errori:", result.stderr)
