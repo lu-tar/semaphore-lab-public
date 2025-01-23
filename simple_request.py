@@ -16,3 +16,8 @@ r = requests.get('https://updater.factorio.com/get-available-versions')
 print(now + " " + str(r))
 with open("semaphore_python.log", "w") as file:
         file.write(now + " " + str(r))
+
+result = subprocess.run(['cat', 'semaphore_python.log'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+print(result.stdout)
+if result.stderr:
+    print("Errori:", result.stderr)
